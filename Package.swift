@@ -17,8 +17,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(path: "../swift-algorand"),
-        .package(path: "../swift-algokit"),
+        .package(url: "https://github.com/CorvidLabs/swift-algorand.git", from: "0.3.1"),
+        .package(url: "https://github.com/CorvidLabs/swift-algokit.git", from: "0.0.1"),
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0")
     ],
     targets: [
