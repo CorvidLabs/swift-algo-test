@@ -27,17 +27,11 @@ let package = Package(
             dependencies: [
                 .product(name: "Algorand", package: "swift-algorand"),
                 .product(name: "AlgoKit", package: "swift-algokit")
-            ],
-            swiftSettings: [
-                .enableUpcomingFeature("StrictConcurrency")
             ]
         ),
         .testTarget(
             name: "AlgoTestTests",
-            dependencies: ["AlgoTest"],
-            swiftSettings: [
-                .enableUpcomingFeature("StrictConcurrency")
-            ]
+            dependencies: ["AlgoTest"]
         )
     ]
 )
