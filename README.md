@@ -1,5 +1,9 @@
 # AlgoTest
 
+![Swift 6.0+](https://img.shields.io/badge/Swift-6.0+-orange.svg)
+![Platforms](https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20visionOS%20%7C%20Linux-lightgrey.svg)
+![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+
 A comprehensive testing utilities framework for Algorand blockchain development in Swift, built with Swift 6 and strict concurrency support.
 
 ## Features
@@ -22,7 +26,7 @@ Add AlgoTest to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/your-org/swift-algo-test", from: "0.1.0")
+    .package(url: "https://github.com/CorvidLabs/swift-algo-test.git", from: "0.1.0")
 ]
 ```
 
