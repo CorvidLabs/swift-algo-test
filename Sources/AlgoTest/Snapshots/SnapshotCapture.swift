@@ -55,7 +55,7 @@ public actor SnapshotCapture {
     }
 
     /// Captures snapshots before and after an operation.
-    public func captureAround<T>(
+    public func captureAround<T: Sendable>(
         accounts: [String],
         operation: () async throws -> T
     ) async throws -> (before: StateSnapshot, after: StateSnapshot, result: T) {
