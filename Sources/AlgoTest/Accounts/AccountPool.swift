@@ -66,7 +66,7 @@ public actor AccountPool {
     /// Executes a block with an account from the pool, automatically releasing it.
     /// - Parameter body: The operation to perform with the account.
     /// - Returns: The result of the operation.
-    public func withAccount<T>(
+    public func withAccount<T: Sendable>(
         _ body: (FundedAccount) async throws -> T
     ) async throws -> T {
         let account = try await acquire()
