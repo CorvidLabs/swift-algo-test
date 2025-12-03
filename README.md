@@ -1,6 +1,7 @@
 # AlgoTest
 
-[![CI](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-algo-test/ci.yml?label=CI&branch=main)](https://github.com/CorvidLabs/swift-algo-test/actions/workflows/ci.yml)
+[![macOS](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-algo-test/macOS.yml?label=macOS&branch=main)](https://github.com/CorvidLabs/swift-algo-test/actions/workflows/macOS.yml)
+[![Ubuntu](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-algo-test/ubuntu.yml?label=Ubuntu&branch=main)](https://github.com/CorvidLabs/swift-algo-test/actions/workflows/ubuntu.yml)
 [![License](https://img.shields.io/github/license/CorvidLabs/swift-algo-test)](https://github.com/CorvidLabs/swift-algo-test/blob/main/LICENSE)
 [![Version](https://img.shields.io/github/v/release/CorvidLabs/swift-algo-test)](https://github.com/CorvidLabs/swift-algo-test/releases)
 
