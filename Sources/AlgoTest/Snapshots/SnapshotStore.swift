@@ -16,7 +16,13 @@ public actor SnapshotStore {
         self.history = []
     }
 
-    /// Stores a snapshot with a unique identifier.
+    /**
+     Stores a snapshot with a unique identifier.
+
+     - Parameters:
+       - id: Unique identifier for the snapshot.
+       - snapshot: The state snapshot to store.
+     */
     public func store(id: String, snapshot: StateSnapshot) {
         snapshots[id] = snapshot
         history.append(SnapshotEntry(
@@ -26,7 +32,13 @@ public actor SnapshotStore {
         ))
     }
 
-    /// Retrieves a stored snapshot.
+    /**
+     Retrieves a stored snapshot.
+
+     - Parameter id: Identifier of the snapshot to retrieve.
+     - Returns: The requested state snapshot.
+     - Throws: `AlgoTestError.snapshotCaptureFailed` if snapshot not found.
+     */
     public func retrieve(id: String) throws -> StateSnapshot {
         guard let snapshot = snapshots[id] else {
             throw AlgoTestError.snapshotCaptureFailed("Snapshot '\(id)' not found")
@@ -34,7 +46,15 @@ public actor SnapshotStore {
         return snapshot
     }
 
-    /// Compares two stored snapshots.
+    /**
+     Compares two stored snapshots.
+
+     - Parameters:
+       - fromID: Identifier of the first snapshot.
+       - toID: Identifier of the second snapshot.
+     - Returns: The differences between the snapshots.
+     - Throws: `AlgoTestError.snapshotCaptureFailed` if either snapshot not found.
+     */
     public func compare(
         from fromID: String,
         to toID: String
@@ -45,7 +65,14 @@ public actor SnapshotStore {
         return toSnapshot.diff(from: fromSnapshot)
     }
 
-    /// Asserts that two snapshots are equal.
+    /**
+     Asserts that two snapshots are equal.
+
+     - Parameters:
+       - id1: Identifier of the first snapshot.
+       - id2: Identifier of the second snapshot.
+     - Throws: `AlgoTestError.snapshotComparisonFailed` if snapshots differ.
+     */
     public func assertEqual(
         _ id1: String,
         _ id2: String
@@ -83,7 +110,14 @@ public actor SnapshotStore {
         history.removeAll { $0.id == id }
     }
 
-    /// Gets snapshots within a time range.
+    /**
+     Gets snapshots within a time range.
+
+     - Parameters:
+       - start: Start date of the range.
+       - end: End date of the range.
+     - Returns: Array of snapshots within the time range.
+     */
     public func snapshots(
         from start: Date,
         to end: Date

@@ -16,24 +16,42 @@ public actor MockAlgodClient {
 
     // MARK: - Configuration
 
-    /// Registers a mock account.
+    /**
+     Registers a mock account.
+
+     - Parameter account: The account information to register.
+     */
     public func register(account: MockResponses.AccountInfo) {
         accounts[account.address] = account
     }
 
-    /// Registers multiple mock accounts.
+    /**
+     Registers multiple mock accounts.
+
+     - Parameter accounts: Array of account information to register.
+     */
     public func register(accounts: [MockResponses.AccountInfo]) {
         for account in accounts {
             register(account: account)
         }
     }
 
-    /// Registers a mock transaction response.
+    /**
+     Registers a mock transaction response.
+
+     - Parameters:
+       - transactionID: The transaction identifier.
+       - response: The transaction response to register.
+     */
     public func register(transactionID: String, response: MockResponses.TransactionResponse) {
         transactions[transactionID] = response
     }
 
-    /// Updates the current round.
+    /**
+     Updates the current round.
+
+     - Parameter rounds: Number of rounds to advance (default: 1).
+     */
     public func advance(rounds: UInt64 = 1) {
         currentRound += rounds
         nodeStatus = MockResponses.NodeStatus(lastRound: currentRound)
@@ -41,7 +59,13 @@ public actor MockAlgodClient {
 
     // MARK: - Query Operations
 
-    /// Gets account information.
+    /**
+     Gets account information.
+
+     - Parameter address: The account address to query.
+     - Returns: The account information.
+     - Throws: `AlgoTestError.mockConfigurationError` if account not registered.
+     */
     public func accountInfo(for address: String) throws -> MockResponses.AccountInfo {
         guard let account = accounts[address] else {
             throw AlgoTestError.mockConfigurationError("Account \(address) not registered")
@@ -49,7 +73,13 @@ public actor MockAlgodClient {
         return account
     }
 
-    /// Gets transaction information.
+    /**
+     Gets transaction information.
+
+     - Parameter id: The transaction identifier.
+     - Returns: The transaction response.
+     - Throws: `AlgoTestError.mockConfigurationError` if transaction not registered.
+     */
     public func transaction(id: String) throws -> MockResponses.TransactionResponse {
         guard let transaction = transactions[id] else {
             throw AlgoTestError.mockConfigurationError("Transaction \(id) not registered")
@@ -69,7 +99,13 @@ public actor MockAlgodClient {
 
     // MARK: - Transaction Simulation
 
-    /// Simulates submitting a transaction.
+    /**
+     Simulates submitting a transaction.
+
+     - Parameter transaction: The transaction to submit.
+     - Returns: The transaction identifier.
+     - Throws: `AlgoTestError` if submission fails due to validation errors.
+     */
     public func submitTransaction(_ transaction: Transaction) throws -> String {
         // Verify sender exists and has sufficient balance
         guard let sender = accounts[transaction.sender] else {

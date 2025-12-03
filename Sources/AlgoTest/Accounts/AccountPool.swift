@@ -39,8 +39,11 @@ public actor AccountPool {
         availableAccounts = try await factory.createAccounts(count: poolSize)
     }
 
-    /// Acquires an account from the pool.
-    /// - Returns: An available account, or creates a new one if pool is exhausted.
+    /**
+     Acquires an account from the pool.
+
+     - Returns: An available account, or creates a new one if pool is exhausted.
+     */
     public func acquire() async throws -> FundedAccount {
         if let account = availableAccounts.first {
             availableAccounts.removeFirst()
@@ -54,8 +57,11 @@ public actor AccountPool {
         return account
     }
 
-    /// Releases an account back to the pool.
-    /// - Parameter account: The account to release.
+    /**
+     Releases an account back to the pool.
+
+     - Parameter account: The account to release.
+     */
     public func release(_ account: FundedAccount) {
         guard inUseAccounts.contains(account.address) else { return }
 
@@ -63,9 +69,12 @@ public actor AccountPool {
         availableAccounts.append(account)
     }
 
-    /// Executes a block with an account from the pool, automatically releasing it.
-    /// - Parameter body: The operation to perform with the account.
-    /// - Returns: The result of the operation.
+    /**
+     Executes a block with an account from the pool, automatically releasing it.
+
+     - Parameter body: The operation to perform with the account.
+     - Returns: The result of the operation.
+     */
     public func withAccount<T: Sendable>(
         _ body: (FundedAccount) async throws -> T
     ) async throws -> T {

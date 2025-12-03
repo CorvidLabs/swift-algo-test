@@ -8,7 +8,15 @@ public actor SnapshotCapture {
         self.client = client
     }
 
-    /// Captures a snapshot of specific accounts.
+    /**
+     Captures a snapshot of specific accounts.
+
+     - Parameters:
+       - accounts: Array of account addresses to capture.
+       - label: Optional label for the snapshot.
+       - description: Optional description of the snapshot.
+     - Returns: A state snapshot containing the account states.
+     */
     public func capture(
         accounts: [String],
         label: String? = nil,
@@ -41,7 +49,12 @@ public actor SnapshotCapture {
         )
     }
 
-    /// Captures a snapshot of all registered accounts.
+    /**
+     Captures a snapshot of all registered accounts.
+
+     - Parameter label: Optional label for the snapshot.
+     - Returns: A state snapshot containing all registered account states.
+     */
     public func captureAll(
         label: String? = nil
     ) async throws -> StateSnapshot {
@@ -54,7 +67,14 @@ public actor SnapshotCapture {
         )
     }
 
-    /// Captures snapshots before and after an operation.
+    /**
+     Captures snapshots before and after an operation.
+
+     - Parameters:
+       - accounts: Array of account addresses to capture.
+       - operation: The async operation to execute between snapshots.
+     - Returns: A tuple containing before snapshot, after snapshot, and operation result.
+     */
     public func captureAround<T: Sendable>(
         accounts: [String],
         operation: () async throws -> T

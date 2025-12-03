@@ -14,7 +14,13 @@ public actor MockIndexerClient {
 
     // MARK: - Configuration
 
-    /// Registers a transaction for indexing.
+    /**
+     Registers a transaction for indexing.
+
+     - Parameters:
+       - transactionID: The transaction identifier.
+       - transaction: The transaction to register.
+     */
     public func register(transactionID: String, transaction: Transaction) {
         transactions[transactionID] = transaction
 
@@ -29,14 +35,25 @@ public actor MockIndexerClient {
         accountTransactions[transaction.receiver] = receiverTxns
     }
 
-    /// Registers a block.
+    /**
+     Registers a block.
+
+     - Parameter block: The block to register.
+     */
     public func register(block: MockResponses.Block) {
         blocks[block.round] = block
     }
 
     // MARK: - Query Operations
 
-    /// Searches for transactions by account.
+    /**
+     Searches for transactions by account.
+
+     - Parameters:
+       - address: The account address to search.
+       - limit: Maximum number of transactions to return (default: 100).
+     - Returns: Array of transactions for the account.
+     */
     public func transactions(
         for address: String,
         limit: Int = 100
@@ -48,7 +65,13 @@ public actor MockIndexerClient {
         return txnIDs.prefix(limit).compactMap { transactions[$0] }
     }
 
-    /// Gets a specific transaction.
+    /**
+     Gets a specific transaction.
+
+     - Parameter id: The transaction identifier.
+     - Returns: The transaction.
+     - Throws: `AlgoTestError.mockConfigurationError` if transaction not found.
+     */
     public func transaction(id: String) throws -> Transaction {
         guard let transaction = transactions[id] else {
             throw AlgoTestError.mockConfigurationError("Transaction \(id) not found")
@@ -56,7 +79,13 @@ public actor MockIndexerClient {
         return transaction
     }
 
-    /// Gets a specific block.
+    /**
+     Gets a specific block.
+
+     - Parameter round: The block round number.
+     - Returns: The block.
+     - Throws: `AlgoTestError.mockConfigurationError` if block not found.
+     */
     public func block(round: UInt64) throws -> MockResponses.Block {
         guard let block = blocks[round] else {
             throw AlgoTestError.mockConfigurationError("Block at round \(round) not found")
@@ -64,7 +93,14 @@ public actor MockIndexerClient {
         return block
     }
 
-    /// Searches for transactions within a round range.
+    /**
+     Searches for transactions within a round range.
+
+     - Parameters:
+       - minRound: Minimum round number.
+       - maxRound: Maximum round number.
+     - Returns: Array of transactions within the round range.
+     */
     public func transactions(
         minRound: UInt64,
         maxRound: UInt64
@@ -74,7 +110,12 @@ public actor MockIndexerClient {
         }
     }
 
-    /// Gets transaction count for an account.
+    /**
+     Gets transaction count for an account.
+
+     - Parameter address: The account address.
+     - Returns: Number of transactions for the account.
+     */
     public func transactionCount(for address: String) -> Int {
         accountTransactions[address]?.count ?? 0
     }

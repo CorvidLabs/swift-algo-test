@@ -26,12 +26,15 @@ public actor AccountFactory {
         self.defaultFundingAmount = configuration.defaultFundingAmount
     }
 
-    /// Creates a new funded account.
-    /// - Parameters:
-    ///   - amount: The amount to fund in microAlgos. Defaults to configuration amount.
-    ///   - purpose: Optional description of the account's purpose.
-    ///   - tags: Tags for categorizing the account.
-    /// - Returns: A newly created and funded account.
+    /**
+     Creates a new funded account.
+
+     - Parameters:
+       - amount: The amount to fund in microAlgos. Defaults to configuration amount.
+       - purpose: Optional description of the account's purpose.
+       - tags: Tags for categorizing the account.
+     - Returns: A newly created and funded account.
+     */
     public func createAccount(
         fundedWith amount: UInt64? = nil,
         purpose: String? = nil,
@@ -58,11 +61,14 @@ public actor AccountFactory {
         return account
     }
 
-    /// Creates multiple accounts at once.
-    /// - Parameters:
-    ///   - count: Number of accounts to create.
-    ///   - amount: Funding amount per account.
-    /// - Returns: Array of created accounts.
+    /**
+     Creates multiple accounts at once.
+
+     - Parameters:
+       - count: Number of accounts to create.
+       - amount: Funding amount per account.
+     - Returns: Array of created accounts.
+     */
     public func createAccounts(
         count: Int,
         fundedWith amount: UInt64? = nil
@@ -85,11 +91,14 @@ public actor AccountFactory {
         }
     }
 
-    /// Funds an existing account with additional microAlgos.
-    /// - Parameters:
-    ///   - account: The account to fund.
-    ///   - amount: The amount to add.
-    /// - Returns: Updated account with new balance.
+    /**
+     Funds an existing account with additional microAlgos.
+
+     - Parameters:
+       - account: The account to fund.
+       - amount: The amount to add.
+     - Returns: Updated account with new balance.
+     */
     public func fundAccount(
         _ account: FundedAccount,
         with amount: UInt64

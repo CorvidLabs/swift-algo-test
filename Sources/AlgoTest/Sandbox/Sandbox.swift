@@ -14,21 +14,33 @@ public protocol Sandbox: Sendable {
     /// The API token for authenticating with the sandbox.
     var apiToken: String { get async throws }
 
-    /// Starts the sandbox environment.
-    /// - Throws: `AlgoTestError.sandboxStartupFailed` if startup fails.
+    /**
+     Starts the sandbox environment.
+
+     - Throws: `AlgoTestError.sandboxStartupFailed` if startup fails.
+     */
     func start() async throws
 
-    /// Stops the sandbox environment.
-    /// - Throws: `AlgoTestError.sandboxShutdownFailed` if shutdown fails.
+    /**
+     Stops the sandbox environment.
+
+     - Throws: `AlgoTestError.sandboxShutdownFailed` if shutdown fails.
+     */
     func stop() async throws
 
-    /// Resets the sandbox to a clean state.
-    /// - Throws: `AlgoTestError` if reset fails.
+    /**
+     Resets the sandbox to a clean state.
+
+     - Throws: `AlgoTestError` if reset fails.
+     */
     func reset() async throws
 
-    /// Waits for the sandbox to be ready for operations.
-    /// - Parameter timeout: Maximum time to wait in seconds.
-    /// - Throws: `AlgoTestError` if sandbox doesn't become ready within timeout.
+    /**
+     Waits for the sandbox to be ready for operations.
+
+     - Parameter timeout: Maximum time to wait in seconds.
+     - Throws: `AlgoTestError` if sandbox doesn't become ready within timeout.
+     */
     func waitForReady(timeout: TimeInterval) async throws
 }
 
@@ -41,9 +53,12 @@ extension Sandbox {
         }
     }
 
-    /// Executes a block with a running sandbox, ensuring cleanup.
-    /// - Parameter body: The async operation to perform.
-    /// - Returns: The result of the body operation.
+    /**
+     Executes a block with a running sandbox, ensuring cleanup.
+
+     - Parameter body: The async operation to perform.
+     - Returns: The result of the body operation.
+     */
     public func withRunning<T>(
         _ body: () async throws -> T
     ) async throws -> T {
