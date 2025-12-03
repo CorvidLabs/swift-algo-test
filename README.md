@@ -275,7 +275,7 @@ swift test
 
 ## License
 
-MIT License - Copyright (c) 2024 Leif
+MIT License - Copyright (c) 2025 Leif
 
 ## Contributing
 
