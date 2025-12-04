@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/github/license/CorvidLabs/swift-algo-test)](https://github.com/CorvidLabs/swift-algo-test/blob/main/LICENSE)
 [![Version](https://img.shields.io/github/v/release/CorvidLabs/swift-algo-test)](https://github.com/CorvidLabs/swift-algo-test/releases)
 
+> **Pre-1.0 Notice**: This library is under active development. The API may change between minor versions until 1.0.
+
 A comprehensive testing utilities framework for Algorand blockchain development in Swift, built with Swift 6 and strict concurrency support.
 
 ## Features
