@@ -1,4 +1,4 @@
-# swift-algo-test Package Summary
+# swift-algotest Package Summary
 
 ## Overview
 
@@ -6,7 +6,7 @@ A comprehensive testing utilities framework for Algorand blockchain development,
 
 ## Package Details
 
-- **Name**: swift-algo-test
+- **Name**: swift-algotest
 - **Module**: AlgoTest
 - **Swift Version**: 6.0+
 - **Concurrency**: Strict concurrency enabled

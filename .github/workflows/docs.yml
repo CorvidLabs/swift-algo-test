@@ -24,7 +24,7 @@ jobs:
             generate-documentation --target AlgoTest \
             --disable-indexing \
             --transform-for-static-hosting \
-            --hosting-base-path swift-algo-test \
+            --hosting-base-path swift-algotest \
             --output-path ./docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

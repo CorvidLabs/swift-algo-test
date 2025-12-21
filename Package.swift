@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-algo-test",
+    name: "swift-algotest",
     platforms: [
         .iOS(.v15),
         .macOS(.v12),

@@ -1,9 +1,9 @@
 # AlgoTest
 
-[![macOS](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-algo-test/macOS.yml?label=macOS&branch=main)](https://github.com/CorvidLabs/swift-algo-test/actions/workflows/macOS.yml)
-[![Ubuntu](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-algo-test/ubuntu.yml?label=Ubuntu&branch=main)](https://github.com/CorvidLabs/swift-algo-test/actions/workflows/ubuntu.yml)
-[![License](https://img.shields.io/github/license/CorvidLabs/swift-algo-test)](https://github.com/CorvidLabs/swift-algo-test/blob/main/LICENSE)
-[![Version](https://img.shields.io/github/v/release/CorvidLabs/swift-algo-test)](https://github.com/CorvidLabs/swift-algo-test/releases)
+[![macOS](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-algotest/macOS.yml?label=macOS&branch=main)](https://github.com/CorvidLabs/swift-algotest/actions/workflows/macOS.yml)
+[![Ubuntu](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-algotest/ubuntu.yml?label=Ubuntu&branch=main)](https://github.com/CorvidLabs/swift-algotest/actions/workflows/ubuntu.yml)
+[![License](https://img.shields.io/github/license/CorvidLabs/swift-algotest)](https://github.com/CorvidLabs/swift-algotest/blob/main/LICENSE)
+[![Version](https://img.shields.io/github/v/release/CorvidLabs/swift-algotest)](https://github.com/CorvidLabs/swift-algotest/releases)
 
 > **Pre-1.0 Notice**: This library is under active development. The API may change between minor versions until 1.0.
 
@@ -29,7 +29,7 @@ Add AlgoTest to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/CorvidLabs/swift-algo-test.git", from: "0.1.0")
+    .package(url: "https://github.com/CorvidLabs/swift-algotest.git", from: "0.1.0")
 ]
 ```
 
