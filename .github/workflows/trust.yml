@@ -39,7 +39,7 @@ jobs:
       - name: SpecSync lifecycle gate
         uses: CorvidLabs/spec-sync@29392630a590c13fcca65bec2a3c0a8f8c9e4081 # v6.0.0-rc.12
         with:
-          version: "5.1.1"
+          version: "6.0.0-rc.12"
           root: .
           strict: "true"
           require-coverage: "100"
