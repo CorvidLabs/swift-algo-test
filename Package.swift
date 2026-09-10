@@ -17,7 +17,10 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/CorvidLabs/swift-algorand.git", from: "0.3.1"),
+        // AlgoKit 0.0.2 calls AlgorandConfiguration.localnet()/testnet()/mainnet() without `try`,
+        // and swift-algorand 0.4.0 made those factories throwing. Stay on 0.3.x until AlgoKit
+        // ships a release built against the throwing API.
+        .package(url: "https://github.com/CorvidLabs/swift-algorand.git", .upToNextMinor(from: "0.3.1")),
         .package(url: "https://github.com/CorvidLabs/swift-algokit.git", from: "0.0.1"),
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0")
     ],
