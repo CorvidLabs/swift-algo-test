@@ -37,15 +37,15 @@ jobs:
           fi
           chmod +x /usr/local/bin/fledge
       - name: SpecSync lifecycle gate
-        uses: CorvidLabs/spec-sync@59bbfa766c6cce01ab815ab47db195b0629cc014 # v5.0.1
+        uses: CorvidLabs/spec-sync@3c2ed4972c8c53ae02ab5dd5775beccd6da3eeb8 # v6.0.0
         with:
-          version: "5.0.1"
+          version: "6.0.0"
           root: .
           strict: "true"
           require-coverage: "100"
           lifecycle-enforce: "true"
       - name: CorvidLabs Trust gate
         id: trust
-        uses: CorvidLabs/trust@9d32b5786d2e9e4d39fc581c0091c721ee3d4226 # v1.0.0
+        uses: CorvidLabs/trust@fcc889f54d8b4892a81af463c5a0250e2be66fc5 # v1.2.0
         with:
           range: ${{ github.event_name == 'pull_request' && format('{0}..{1}', github.event.pull_request.base.sha, github.event.pull_request.head.sha) || format('{0}..{1}', github.event.before, github.sha) }}
